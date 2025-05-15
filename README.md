@@ -10,6 +10,10 @@
     <img src="https://img.shields.io/badge/%F0%9F%A4%97%20HuggingFace-Model-yellow" alt="HuggingFace Model">
   </a>
 
+  <a href="https://modelscope.cn/models/hongqi/cogenav" target="_blank">
+      <img src="https://img.shields.io/badge/🤖%20ModelScope-Model-yellow" alt="ModelScope Model">
+  </a>
+
 </div>
 
 
@@ -54,7 +58,7 @@ The left panel depicts the Audio-Visual Feature Representation framework and the
    ```python
     import whisper
     from whisper.model import AudioEncoder
-    from infer import cogenav_forward
+    from infer_vsr_avsr import cogenav_forward
     from models.cogenav import CoGenAV
     # Override the Whisper encoder's forward function
     AudioEncoder.forward = cogenav_forward
@@ -98,55 +102,73 @@ The left panel depicts the Audio-Visual Feature Representation framework and the
   </tr>
   <tr>
     <td colspan="2" style="text-align: center;">
-      <a href="https://huggingface.co/detao/CoGenAV/resolve/main/cogen_demo/demo_avsr3.mp4" target="_blank">Demo AVSR 3</a> |
-      <a href="https://huggingface.co/detao/CoGenAV/resolve/main/cogen_demo/demo_avsr1.mp4" target="_blank">Demo AVSR 1</a> |
-      <a href="https://huggingface.co/detao/CoGenAV/resolve/main/cogen_demo/demo_avsr2.mp4" target="_blank">Demo AVSR 2</a>
+      <video src="https://github.com/user-attachments/assets/e44e4606-9ef0-4fc7-a1e0-0add000f8e5f" controls preload></video>
+      <video src="https://github.com/user-attachments/assets/6c0cfe05-e82e-4b05-bd07-f4e0ebf2375f" controls preload></video>
+      <video src="https://github.com/user-attachments/assets/d1190323-dd31-4a74-b2f7-25ce3ec72c35" controls preload></video>
     </td>
   </tr>
 </table>
 
 ### Demo For AVSS/AVSE
-<table class="center">
+
+<table style="width:100%; text-align:center;">
   <tr>
-    <td colspan="2" style="text-align: center; font-weight: bold;">
-      AVSS
+    <td colspan="2" style="font-weight: bold; font-size: 1.5em; text-align: center;">
+      AVSS(Audio-Visual Speech Separation)
     </td>
   </tr>
   <tr>
-    <td width="100%" style="text-align: center;">
-      <a href="https://huggingface.co/detao/CoGenAV/resolve/main/cogen_demo/demo_avss1.mp4" target="_blank">Demo AVSS 1</a> |
-      <a href="https://huggingface.co/detao/CoGenAV/resolve/main/cogen_demo/demo_avss2.mp4" target="_blank">Demo AVSS 2</a>
+    <td width="50%">
+      <video src="https://github.com/user-attachments/assets/13181ace-bb1e-4a6a-97b5-440caa1c93ef" controls preload></video>
     </td>
-  </tr>
-  <tr>
-    <td colspan="2" style="text-align: center; font-weight: bold;">
-      AVSE
-    </td>
-  </tr>
-  <tr>
-    <td width="100%" style="text-align: center;">
-      <a href="https://huggingface.co/detao/CoGenAV/resolve/main/cogen_demo/demo_avse1.mp4" target="_blank">Demo AVSE 1</a> |
-      <a href="https://huggingface.co/detao/CoGenAV/resolve/main/cogen_demo/demo_avse2.mp4" target="_blank">Demo AVSE 2</a> |
-      <a href="https://huggingface.co/detao/CoGenAV/resolve/main/cogen_demo/demo_avse3.mp4" target="_blank">Demo AVSE 3</a> |
-      <a href="https://huggingface.co/detao/CoGenAV/resolve/main/cogen_demo/demo_avse4.mp4" target="_blank">Demo AVSE 4</a>
+    <td width="50%">
+      <video src="https://github.com/user-attachments/assets/24a128fb-9686-4c48-955c-8f48c98847a8" controls preload></video>
     </td>
   </tr>
 </table>
+
+<table style="width:100%; text-align:center;">
+  <tr>
+    <td colspan="4" style="font-weight: bold; font-size: 1.5em; text-align: center;">
+      AVSE(Audio-Visual Speech Enhancement)
+    </td>
+  </tr>
+  <tr>
+    <td width="25%">
+      <video src="https://github.com/user-attachments/assets/bd7205e8-4eac-4f24-b5a3-251c35b35429" controls preload></video>
+    </td>
+    <td width="25%">
+      <video src="https://github.com/user-attachments/assets/3101da59-b535-43dc-b58f-8d62625a4b8b" controls preload></video>
+    </td>
+    <td width="25%">
+      <video src="https://github.com/user-attachments/assets/7f2011bf-ad67-4a67-b7b9-619e3bf04692" controls preload></video>
+    </td>
+    <td width="25%">
+      <video src="https://github.com/user-attachments/assets/e37e19d6-9a63-422b-b200-d827b4e9b317" controls preload></video>
+    </td>
+  </tr>
+</table>
+
 
 ---
 ## Result
 ### CoGenAV Base for VSR/AVSR
 | Size        | SR Head        | Modalities | VSR  | AVSR@noise | AVSR@clean | AVSR with sft whisper @clean |
-|-------------|----------------|------------|------|------------|------------|------------------------------|
-|     -        | Whisper medium  | A          | -    | 20.6       | 6.4        | 1.5                          |
+|-------------|----------------|------------|------|------------|------------|------------|
+|     -        | Whisper medium  | A          | -    | 34.2       | 6.4        | 1.5                          |
 | **Base**    | Whisper small   | AV         | 24.8 | 5.2        | 2.5        | -                            |
 | **Large**   | Whisper medium  | AV         | 20.4 | 2.6        | 1.8        | **1.27**                     |
 > **Note:** VSR/AVSR results on LRS2. The evaluation metric used is WER, and the results are obtained from training conducted solely on the LRS2 dataset.
 
 ### CoGenAV Base for AVSS/AVSE
-| Task        | Sep Head       | Test Dataset    | SI-SNRi | SDRi | PESQ  |
+| Task        | SS Head       | Test Dataset    | SI-SNRi | SDRi | PESQ  |
 |-------------|----------------|------------------|---------|------|-------|
 | **AVSS**    | AV-Sepformer   | mix_2_spk_tt     | 15.7    | 16.0 | 3.23  |
 | **AVSE**    | AV-Sepformer   | lrs2_test+noise  | 8.3     | 9.0  | 2.56  |
 
 > **Note:** AVSS/AVSE results on LRS2. These metrics represent the average values for all speakers in each test set, where larger SI-SNRi, SDRi, and PESQ are better.
+
+### CoGenAV Base for ASD
+| Task        | SD Head       | Test Dataset    | mAP |
+|-------------|----------------|------------------|---------|
+| **ASD**    | LRASD   | Talkies     | 96.3    | 
