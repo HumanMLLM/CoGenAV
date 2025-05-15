@@ -1,0 +1,9 @@
+# fairseq
+whisper
+decord==0.6.0
+evaluate==0.4.3
+librosa==0.11.0
+omegaconf==2.3.0
+pypesq==1.2.4
+torch==2.5.1
+transformers==4.47.1
