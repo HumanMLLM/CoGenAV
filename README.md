@@ -10,7 +10,7 @@
     <img src="https://img.shields.io/badge/%F0%9F%A4%97%20HuggingFace-Model-yellow" alt="HuggingFace Model">
   </a>
 
-  <a href="https://modelscope.cn/models/hongqi/cogenav" target="_blank">
+  <a href="https://modelscope.cn/models/iic/cogenav" target="_blank">
       <img src="https://img.shields.io/badge/🤖%20ModelScope-Model-yellow" alt="ModelScope Model">
   </a>
 
