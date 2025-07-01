@@ -172,3 +172,9 @@ The left panel depicts the Audio-Visual Feature Representation framework and the
 | Task        | SD Head       | Test Dataset    | mAP |
 |-------------|----------------|------------------|---------|
 | **ASD**    | LRASD   | Talkies     | 96.3    | 
+
+## Join us
+
+If you are looking for jobs/internships in Tongyi Lab, Alibaba Group, please contact xihan.wxh@alibaba-inc.com (WeChat: weixihan1).
+
+
